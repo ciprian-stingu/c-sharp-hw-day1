@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo del $(TargetDir)FirstHW.exe &gt; $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)FirstHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo del $(TargetDir)SecondHW.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)SecondHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo del $(TargetDir)ThirdHW.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)ThirdHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo del $(TargetDir)FourthHW.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)FourthHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo del $(TargetDir)FifthHW.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)FifthHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo del $(TargetDir)SixthHW.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;echo mklink /H $(TargetDir)SixthHW.exe $(TargetDir)Homework.exe &gt;&gt;  $(TargetDir)files.cmd&#xD;&#xA;&#xD;&#xA;powershell &quot;start $(TargetDir)files.cmd -v runAs&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+  </Target>
+
+</Project>
